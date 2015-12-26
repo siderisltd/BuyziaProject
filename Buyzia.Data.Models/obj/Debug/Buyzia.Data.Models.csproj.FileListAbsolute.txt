@@ -1,0 +1,9 @@
+C:\Users\Alex\Desktop\BuyziaProject\Buyzia.Data.Models\bin\Debug\Buyzia.Data.Models.dll.config
+C:\Users\Alex\Desktop\BuyziaProject\Buyzia.Data.Models\bin\Debug\Buyzia.Data.Models.dll
+C:\Users\Alex\Desktop\BuyziaProject\Buyzia.Data.Models\bin\Debug\Buyzia.Data.Models.pdb
+C:\Users\Alex\Desktop\BuyziaProject\Buyzia.Data.Models\bin\Debug\EntityFramework.dll
+C:\Users\Alex\Desktop\BuyziaProject\Buyzia.Data.Models\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\Alex\Desktop\BuyziaProject\Buyzia.Data.Models\bin\Debug\EntityFramework.xml
+C:\Users\Alex\Desktop\BuyziaProject\Buyzia.Data.Models\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\Alex\Desktop\BuyziaProject\Buyzia.Data.Models\obj\Debug\Buyzia.Data.Models.dll
+C:\Users\Alex\Desktop\BuyziaProject\Buyzia.Data.Models\obj\Debug\Buyzia.Data.Models.pdb
