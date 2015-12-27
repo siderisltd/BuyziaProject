@@ -3,8 +3,7 @@
     using System.Collections.Generic;
     using System.Web.Http;
     using System.Linq;
-    using System.Web.Helpers;
-    using Services;
+    using Services.Contracts;
 
     public class ValuesController : ApiController
     {

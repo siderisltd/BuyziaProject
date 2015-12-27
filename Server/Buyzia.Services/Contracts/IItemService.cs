@@ -1,4 +1,4 @@
-﻿namespace Buyzia.Services
+﻿namespace Buyzia.Services.Contracts
 {
     using System.Linq;
     using Data.Models;

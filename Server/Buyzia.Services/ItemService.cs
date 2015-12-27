@@ -1,6 +1,7 @@
 ﻿namespace Buyzia.Services
 {
     using System.Linq;
+    using Contracts;
     using Data.Models;
     using Data.Repositories;
 
