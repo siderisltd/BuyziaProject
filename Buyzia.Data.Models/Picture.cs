@@ -16,12 +16,14 @@
 
         public byte[] Content { get; set; }
 
-        public int ItemId { get; set; }
+        public Guid ItemId { get; set; }
 
         public virtual Item Item { get; set; }
 
         public DateTime CreatedOn { get; set; }
 
         public DateTime? ModifiedOn { get; set; }
+
+        public bool IsMainPicture { get; set; }
     }
 }

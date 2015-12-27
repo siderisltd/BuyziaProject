@@ -32,6 +32,7 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -42,6 +43,9 @@
   <ItemGroup>
     <Compile Include="Contracts\IItemService.cs" />
     <Compile Include="Contracts\IPictureService.cs" />
+    <Compile Include="Helpers\ImagesHelper.cs" />
+    <Compile Include="Helpers\PriceHelper.cs" />
+    <Compile Include="Helpers\TaxHelper.cs" />
     <Compile Include="PictureService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ItemService.cs" />
@@ -54,6 +58,10 @@
     <ProjectReference Include="..\..\Buyzia.Data\Buyzia.Data.csproj">
       <Project>{ae1b7d65-4cf8-4e0a-a0be-179b0da90314}</Project>
       <Name>Buyzia.Data</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Buyzia.Common\Buyzia.Common.csproj">
+      <Project>{2526238f-7a30-4c6c-8a93-7416483e3737}</Project>
+      <Name>Buyzia.Common</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

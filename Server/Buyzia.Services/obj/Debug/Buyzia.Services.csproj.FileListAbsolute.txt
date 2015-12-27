@@ -11,11 +11,13 @@ C:\Users\Alex\Desktop\BuyziaProject\Server\Buyzia.Services\obj\Debug\Buyzia.Serv
 C:\Users\Alex\Desktop\BuyziaProject\Server\Buyzia.Services\obj\Debug\Buyzia.Services.pdb
 C:\Users\Alex\Desktop\BuyziaProjectRepo\Server\Buyzia.Services\bin\Debug\Buyzia.Services.dll
 C:\Users\Alex\Desktop\BuyziaProjectRepo\Server\Buyzia.Services\bin\Debug\Buyzia.Services.pdb
+C:\Users\Alex\Desktop\BuyziaProjectRepo\Server\Buyzia.Services\bin\Debug\Buyzia.Common.dll
 C:\Users\Alex\Desktop\BuyziaProjectRepo\Server\Buyzia.Services\bin\Debug\Buyzia.Data.dll
 C:\Users\Alex\Desktop\BuyziaProjectRepo\Server\Buyzia.Services\bin\Debug\Buyzia.Data.Models.dll
 C:\Users\Alex\Desktop\BuyziaProjectRepo\Server\Buyzia.Services\bin\Debug\EntityFramework.dll
 C:\Users\Alex\Desktop\BuyziaProjectRepo\Server\Buyzia.Services\bin\Debug\Buyzia.Data.Models.pdb
 C:\Users\Alex\Desktop\BuyziaProjectRepo\Server\Buyzia.Services\bin\Debug\Buyzia.Data.pdb
+C:\Users\Alex\Desktop\BuyziaProjectRepo\Server\Buyzia.Services\bin\Debug\Buyzia.Common.pdb
 C:\Users\Alex\Desktop\BuyziaProjectRepo\Server\Buyzia.Services\bin\Debug\EntityFramework.xml
 C:\Users\Alex\Desktop\BuyziaProjectRepo\Server\Buyzia.Services\obj\Debug\Buyzia.Services.csprojResolveAssemblyReference.cache
 C:\Users\Alex\Desktop\BuyziaProjectRepo\Server\Buyzia.Services\obj\Debug\Buyzia.Services.dll

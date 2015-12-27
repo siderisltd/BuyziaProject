@@ -194,7 +194,6 @@
     <Compile Include="Models\Items\ItemBindingModel.cs" />
     <Compile Include="Models\Items\ItemViewModel.cs" />
     <Compile Include="Models\Pictures\PicturesBindingModel.cs" />
-    <Compile Include="Models\Pictures\PicturesViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -219,6 +218,10 @@
     <ProjectReference Include="..\..\Buyzia.Data\Buyzia.Data.csproj">
       <Project>{ae1b7d65-4cf8-4e0a-a0be-179b0da90314}</Project>
       <Name>Buyzia.Data</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Buyzia.Common\Buyzia.Common.csproj">
+      <Project>{2526238F-7A30-4C6C-8A93-7416483E3737}</Project>
+      <Name>Buyzia.Common</Name>
     </ProjectReference>
     <ProjectReference Include="..\Buyzia.Services\Buyzia.Services.csproj">
       <Project>{a714fd8d-3aaf-4ee0-8bdf-acaa7d889be6}</Project>
