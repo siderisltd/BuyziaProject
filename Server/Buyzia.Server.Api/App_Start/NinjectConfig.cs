@@ -5,6 +5,7 @@ namespace Buyzia.Server.Api
 {
     using System;
     using System.Web;
+    using Common;
     using Data;
     using Data.Repositories;
     using Microsoft.Web.Infrastructure.DynamicModuleHelper;
@@ -38,13 +39,15 @@ namespace Buyzia.Server.Api
         /// Creates the kernel that will manage your application.
         /// </summary>
         /// <returns>The created kernel.</returns>
-        private static IKernel CreateKernel()
+        public static IKernel CreateKernel()
         {
             var kernel = new StandardKernel();
             try
             {
                 kernel.Bind<Func<IKernel>>().ToMethod(ctx => () => new Bootstrapper().Kernel);
                 kernel.Bind<IHttpModule>().To<HttpApplicationInitializationHttpModule>();
+
+                ObjectFactory.Innitialize(kernel);
 
                 RegisterServices(kernel);
                 return kernel;

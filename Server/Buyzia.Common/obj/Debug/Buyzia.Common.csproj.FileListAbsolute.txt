@@ -2,3 +2,6 @@ C:\Users\Alex\Desktop\BuyziaProjectRepo\Server\Buyzia.Common\bin\Debug\Buyzia.Co
 C:\Users\Alex\Desktop\BuyziaProjectRepo\Server\Buyzia.Common\bin\Debug\Buyzia.Common.pdb
 C:\Users\Alex\Desktop\BuyziaProjectRepo\Server\Buyzia.Common\obj\Debug\Buyzia.Common.dll
 C:\Users\Alex\Desktop\BuyziaProjectRepo\Server\Buyzia.Common\obj\Debug\Buyzia.Common.pdb
+C:\Users\Alex\Desktop\BuyziaProjectRepo\Server\Buyzia.Common\bin\Debug\Ninject.dll
+C:\Users\Alex\Desktop\BuyziaProjectRepo\Server\Buyzia.Common\bin\Debug\Ninject.xml
+C:\Users\Alex\Desktop\BuyziaProjectRepo\Server\Buyzia.Common\obj\Debug\Buyzia.Common.csprojResolveAssemblyReference.cache

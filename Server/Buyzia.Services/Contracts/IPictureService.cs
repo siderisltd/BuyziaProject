@@ -10,5 +10,7 @@
         byte[] GetPictureById(int pictureId);
 
         ICollection<string> GetAllPictureUrlsForGivenItem(Guid itemId);
+        
+        string GetMainPictureLinkByItemId(Guid itemId);
     }
 }

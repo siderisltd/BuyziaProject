@@ -41,12 +41,23 @@
             return response;
         }
 
-        [Route("getAllPicturesForGivenItem")]
-        public IHttpActionResult Get(string id)
+        [HttpGet]
+        [Route("getAllPicturesByItemId")]
+        public IHttpActionResult GetAllPictures(string id)
         {
             var itemGuid = new Guid(id);
             ICollection<string> pictureUrls = this.pictureService.GetAllPictureUrlsForGivenItem(itemGuid);
             return this.Ok(pictureUrls);
+        }
+        
+        [HttpGet]
+        [Route("getMainPictureByItemId")]
+        public IHttpActionResult GetMainPicture(string id)
+        {
+            var itemGuid = new Guid(id);
+            var mainPicture = this.pictureService.GetMainPictureLinkByItemId(itemGuid);
+
+            return this.Ok(mainPicture);
         }
     }
 }

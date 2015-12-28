@@ -48,5 +48,22 @@
         {
             return this.picturesRepo.FindById(pictureId).Content;
         }
+
+        public string GetMainPictureLinkByItemId(Guid itemId)
+        {
+            var mainPictureUrl = this.picturesRepo
+               .All()
+               .Where(x => x.ItemId == itemId && x.IsMainPicture)
+               .Select(x => Constants.SERVER_URL_PREFIX + Constants.PICTURES_ROUTE_URL + x.Id)
+               .FirstOrDefault();
+
+
+            if (mainPictureUrl == null)
+            {
+                throw new ArgumentNullException("Main picture cannot be null");
+            }
+
+            return mainPictureUrl;
+        }
     }
 }

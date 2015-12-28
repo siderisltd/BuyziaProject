@@ -29,12 +29,12 @@
         private string htmlTemplate;
         private List<string> keyWordsFromName;
         private List<string> randomKeyWords;
-        private IItemService itemsService;
+        private IPictureService pictureService;
 
-        public DescriptionHelper(Item item, IItemService itemsService)
+        public DescriptionHelper(Item item, IPictureService pictureService)
         {
             this.item = item;
-            this.itemsService = itemsService;
+            this.pictureService = pictureService;
             //TODO: Fix keywords
       
             this.keyWordsFromName = this.GetKeywordsFromItemName(this.item.OriginalName);
@@ -93,13 +93,7 @@
             htmlResult = this.ExactReplace(htmlResult, KeyKeywords, keywordsJoinedByCommaAndSpace);
             htmlResult = this.ExactReplace(htmlResult, KeyMaintitle, this.item.OriginalName);
             htmlResult = this.ExactReplace(htmlResult, KeyAltTitle, this.item.OriginalName);
-            htmlResult = this.ExactReplace(htmlResult, KeyImageLink, this.itemsService.GetMainPictureLinkByItemId(this.item.Id));
-
-
-            //var htmlMinifier = new HtmlMinifier();
-
-            //var minifiedResult = htmlMinifier.Minify(htmlResult);
-            //var minifiedHtml = minifiedResult.MinifiedContent;
+            htmlResult = this.ExactReplace(htmlResult, KeyImageLink, this.pictureService.GetMainPictureLinkByItemId(this.item.Id));
 
             var minifiedHtml = Minifiers.Html.Compress(htmlResult);
 

@@ -34,3 +34,5 @@ C:\Users\Alex\Desktop\BuyziaProjectRepo\Server\Buyzia.Services\bin\Debug\Service
 C:\Users\Alex\Desktop\BuyziaProjectRepo\Server\Buyzia.Services\bin\Debug\ServiceStack.Client.xml
 C:\Users\Alex\Desktop\BuyziaProjectRepo\Server\Buyzia.Services\bin\Debug\ServiceStack.Common.xml
 C:\Users\Alex\Desktop\BuyziaProjectRepo\Server\Buyzia.Services\bin\Debug\ServiceStack.Text.xml
+C:\Users\Alex\Desktop\BuyziaProjectRepo\Server\Buyzia.Services\bin\Debug\Ninject.dll
+C:\Users\Alex\Desktop\BuyziaProjectRepo\Server\Buyzia.Services\bin\Debug\Ninject.xml

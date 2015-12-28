@@ -19,7 +19,6 @@
             this.pictureService = pictureService;
         }
 
-
         public IHttpActionResult Post(ItemBindingModel model)
         {
             Item itemToAdd = model.ToModel(model);
