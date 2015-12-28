@@ -218,6 +218,10 @@
       <Project>{ae1b7d65-4cf8-4e0a-a0be-179b0da90314}</Project>
       <Name>Buyzia.Data</Name>
     </ProjectReference>
+    <ProjectReference Include="..\..\Ebay\EbayService\EbayService.csproj">
+      <Project>{5763f56d-24a6-4524-a33c-b04d48894312}</Project>
+      <Name>EbayService</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Buyzia.Common\Buyzia.Common.csproj">
       <Project>{2526238F-7A30-4C6C-8A93-7416483E3737}</Project>
       <Name>Buyzia.Common</Name>

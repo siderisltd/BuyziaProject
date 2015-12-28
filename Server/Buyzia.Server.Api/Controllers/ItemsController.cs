@@ -3,6 +3,7 @@
     using System;
     using System.Web.Http;
     using Data.Models;
+    using EbayService.Contracts;
     using Models.Items;
     using Services.Contracts;
 
@@ -12,11 +13,13 @@
     {
         private IItemService itemService;
         private IPictureService pictureService;
+        private IEbayItemService ebayItemService;
 
-        public ItemsController(IItemService itemService, IPictureService pictureService)
+        public ItemsController(IItemService itemService, IPictureService pictureService, IEbayItemService ebayItemService)
         {
             this.itemService = itemService;
             this.pictureService = pictureService;
+            this.ebayItemService = ebayItemService;
         }
 
         public IHttpActionResult Post(ItemBindingModel model)
@@ -44,6 +47,16 @@
             var itemGuid = new Guid(id);
             var description = this.itemService.GetItemDescriptionById(itemGuid);
             return this.Ok(description);
+        }
+
+        [HttpGet]
+        [Route("listInEbayByItemId")]
+        public IHttpActionResult ListItemToEbay(string id)
+        {
+            //TODO: Add ViewModel To Display fees
+            this.ebayItemService.ListItem(id);
+
+            return this.Ok();
         }
     } 
 }

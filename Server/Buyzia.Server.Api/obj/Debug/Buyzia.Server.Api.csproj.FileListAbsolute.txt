@@ -169,3 +169,7 @@ C:\Users\Alex\Desktop\BuyziaProjectRepo\Server\Buyzia.Server.Api\bin\ServiceStac
 C:\Users\Alex\Desktop\BuyziaProjectRepo\Server\Buyzia.Server.Api\bin\ServiceStack.Client.xml
 C:\Users\Alex\Desktop\BuyziaProjectRepo\Server\Buyzia.Server.Api\bin\ServiceStack.Common.xml
 C:\Users\Alex\Desktop\BuyziaProjectRepo\Server\Buyzia.Server.Api\bin\ServiceStack.Text.xml
+C:\Users\Alex\Desktop\BuyziaProjectRepo\Server\Buyzia.Server.Api\bin\EbayService.dll
+C:\Users\Alex\Desktop\BuyziaProjectRepo\Server\Buyzia.Server.Api\bin\eBay.Service.dll
+C:\Users\Alex\Desktop\BuyziaProjectRepo\Server\Buyzia.Server.Api\bin\EbayService.pdb
+C:\Users\Alex\Desktop\BuyziaProjectRepo\Server\Buyzia.Server.Api\bin\eBay.Service.xml

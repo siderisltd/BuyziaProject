@@ -11,5 +11,7 @@
         Guid Add(Item itemToAdd);
 
         string GetItemDescriptionById(object id);
+
+        Item GetItemById(Guid id);
     }
 }

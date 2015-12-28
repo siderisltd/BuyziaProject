@@ -40,5 +40,10 @@
 
             return itemDescription;
         }
+
+        public Item GetItemById(Guid id)
+        {
+            return this.itemsRepo.FindById(id);
+        }
     }
 }
