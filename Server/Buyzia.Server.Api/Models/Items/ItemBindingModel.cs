@@ -18,7 +18,6 @@
 
         private decimal overChargePercentage;
 
-
         public ItemBindingModel()
         {
             this.profit = decimal.MinValue;

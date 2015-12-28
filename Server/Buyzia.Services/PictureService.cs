@@ -1,6 +1,8 @@
 ﻿namespace Buyzia.Services
 {
     using System;
+    using System.Collections.Generic;
+    using System.Linq;
     using Common;
     using Contracts;
     using Data.Models;
@@ -21,7 +23,7 @@
             var pictureToAdd = new Picture
             {
                 ItemId = toItemId,
-                Content = ImagesHelper.ResizeImageByLongestSide(url, Constants.PICTURE_LONGEST_SIDE, Constants.IMAGE_FORMAT),
+                Content = PicturesHelper.ResizeImageByLongestSide(url, Constants.PICTURE_LONGEST_SIDE, Constants.IMAGE_FORMAT),
                 IsMainPicture = isMainPicture
             };
 
@@ -29,6 +31,17 @@
             this.picturesRepo.SaveChanges();
 
             return pictureToAdd.Id;
+        }
+
+        public ICollection<string> GetAllPictureUrlsForGivenItem(Guid itemId)
+        {
+             var result = this.picturesRepo
+                .All()
+                .Where(x => x.ItemId == itemId)
+                .Select(x => Constants.SERVER_URL_PREFIX + Constants.PICTURES_ROUTE_URL + x.Id)
+                .ToList();
+
+            return result;
         }
 
         public byte[] GetPictureById(int pictureId)

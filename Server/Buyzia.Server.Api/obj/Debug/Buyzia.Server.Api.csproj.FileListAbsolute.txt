@@ -160,3 +160,12 @@ C:\Users\Alex\Desktop\BuyziaProjectRepo\Server\Buyzia.Server.Api\bin\Antlr3.Runt
 C:\Users\Alex\Desktop\BuyziaProjectRepo\Server\Buyzia.Server.Api\obj\Debug\Buyzia.Server.Api.csprojResolveAssemblyReference.cache
 C:\Users\Alex\Desktop\BuyziaProjectRepo\Server\Buyzia.Server.Api\obj\Debug\Buyzia.Server.Api.dll
 C:\Users\Alex\Desktop\BuyziaProjectRepo\Server\Buyzia.Server.Api\obj\Debug\Buyzia.Server.Api.pdb
+C:\Users\Alex\Desktop\BuyziaProjectRepo\Server\Buyzia.Server.Api\bin\ServiceStack.dll
+C:\Users\Alex\Desktop\BuyziaProjectRepo\Server\Buyzia.Server.Api\bin\ServiceStack.Interfaces.dll
+C:\Users\Alex\Desktop\BuyziaProjectRepo\Server\Buyzia.Server.Api\bin\ServiceStack.Client.dll
+C:\Users\Alex\Desktop\BuyziaProjectRepo\Server\Buyzia.Server.Api\bin\ServiceStack.Common.dll
+C:\Users\Alex\Desktop\BuyziaProjectRepo\Server\Buyzia.Server.Api\bin\ServiceStack.Text.dll
+C:\Users\Alex\Desktop\BuyziaProjectRepo\Server\Buyzia.Server.Api\bin\ServiceStack.xml
+C:\Users\Alex\Desktop\BuyziaProjectRepo\Server\Buyzia.Server.Api\bin\ServiceStack.Client.xml
+C:\Users\Alex\Desktop\BuyziaProjectRepo\Server\Buyzia.Server.Api\bin\ServiceStack.Common.xml
+C:\Users\Alex\Desktop\BuyziaProjectRepo\Server\Buyzia.Server.Api\bin\ServiceStack.Text.xml

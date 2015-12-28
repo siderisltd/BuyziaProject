@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>maintitle</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="maintitle">
+    <meta name="keywords" content="keywordswithcommasgoeshere">
+    <meta name="robots" content="index, follow">
+    <meta name="googlebot" content="index, follow">
+    <meta name="revisit-After" content="1 day">
+    <meta name="rating" content="general">
+    <meta name="author" content="Buyzia">
+    <meta name="generator" content="Buyzia Wholesale Online Store">
+
+    <link href="https://googledrive.com/host/0B0_TaltUEWX5fkdfNEsxb1BLWWFFYlJjWWxjdlFkVndNVGR0eGtXdW50TVhjOU1NdEZtbGM/buyzia-final-mini.css" rel="stylesheet" />
+</head>
+
+<body>
+    <header>
+        <img id="logo" src="http://i1336.photobucket.com/albums/o644/Alexis_Sideris/buyzia_zpse0xfs2qj.jpg" title="Buyzia" alt="Buyzia logo"/>
+        <nav class="navigation" title="navigation">
+            <ul class="ulwrapper" title="menu">
+                <li class="top three" id="navlist" title="listing"><a href="#listing" id="navlisting" title="listing">Listing</a></li>
+                <li id="paymentlist" class="top three" title="payment"><a href="#payment" id="navpayment" title="payment">Payment</a></li>
+                <li id="navshippinglist" class="top three" title="shipping"><a href="#shipping" id="navshipping" title="shipping">Shipping & Handling</a></li>
+                <li id="navreturnslist" class="bottom three" title="returns"><a href="#returns" id="navreturns" title="returns">Returns & Exchanges</a></li>
+                <li id="storelist" title="Buyzia"><a href="http://www.ebay.com/usr/buyzia" target="_blank" id="navstore" class="bottom three" title="Buyzia">Store</a></li>
+                <li id="contactlist" title="Contacy buyzia"><a href="#contact" id="navcontactus" class="bottom three" title="Buyzia Contact">Contact us</a></li>
+            </ul>
+        </nav>
+    </header>
+    <hr class="clearfix" />
+    <section title="content">
+        <article id="payment" title="Payment Policies">
+            <h2 title="payment policies">Payment</h2>
+            <p>We want to ensure that all of our buyers are offered all the <strong>benefits</strong> that eBay has to offer. In order to ensure that all of our buyers qualify for <strong>eBay Buyer Protection</strong>, we only accept payment through <strong>PayPal</strong>.<p>
+            <p>PayPal allows you to complete your purchase <strong>quickly</strong> and securely. It offers a variety of payment options including all the major card carriers.
+            <p>In order to ensure that all of our customers have equal access to our inventory, we require immediate payment.</p>
+            <h3 title="sales tax">Sales tax:</h3>
+            <p>
+                Our shipment processing centers are located throughout the country to ensure that you can receive your package as <strong>quickly</strong> and efficiently as possible. As a result, we are required to charge
+                sales tax in the following states: Arizona (AZ), California (CA), Connecticut (CT), Florida (FL), Georgia (GA), Illinois (IL), Indiana (IN), Kansas (KS), Kentucky (KY), Maryland (MD), Massachusetts (MA), Minnesota (MN),
+                Nevada (NV), New Jersey (NJ), New York (NY), North Carolina (NC), North Dakota (ND), Pennsylvania (PA), Tennessee (TN), Texas (TX), Virginia (VA), Washington (WA), West Virginia (WV), and Wisconsin (WI).
+            </p>
+        </article>
+        <article id="shipping" title="shipping">
+            <h2 title="shipping">Shipping & Handling</h2>
+            <p>
+                All orders are shipped out within <strong>one business day</strong>. Your order will be shipped out via one of our participating partners, which include <strong>UPS</strong>, <strong>USPS</strong>, <strong>FedEx</strong>, <strong>DHL</strong>, among others. At this time, we only ship to physical addresses that are located within the 48 contiguous <strong>states</strong> of the <strong>United States of America</strong>. We are unable to ship to P.O. boxes, APO or FPO addresses, or <strong>international</strong> addresses.
+                <h3 title="tracking">Tracking</h3>
+            <p>Once we have confirmed that your order was picked up by the shipping carrier, we will update the tracking information through eBay.</p>
+            <h3 title="local pick up">Local Pick Up</h3>
+            <p>Unfortunately, due to the nature of our business, we do not allow local pick up. We apologize for any inconvenience that this may cause.</p>
+        </article>
+        <article id="contact" title="contact">
+            <h2 title="contact us">Contact us</h2>
+            <p>In order to provide you with the <strong>best</strong> possible <strong>service></strong>, we ask that you utilize <strong>eBay</strong>'s internal messaging system to get a hold of us. We look forward to responding to your message.</p>
+            <a href="http://contact.ebay.com/ws/eBayISAPI.dll?FindAnswers&requested=buyzia&_trksid=p2050430.m2531.l4583&rt=nc&iid=251818244948" class="contactmessage" target="_blank" title="send message">Click here to send us a message</a>
+        </article>
+        <article id="returns" title="returns">
+            <h2 title="returns">Returns</h2>
+            <p>In the event that you would like to return your purchase, we allow returns that are processed within <strong>14 days</strong> of receipt of the merchandise. Please contact us for a return authorization and the return shipping address. Return shipping and handling is the responsibility of the buyer and all returns are subject to a minimum of a 15% restocking fee.</p>
+            <h2 title="exchanges">Exchanges</h2>
+            <p>In the event that you receive defective or damaged merchandise, we will <strong>replace</strong> the item at no cost to you as long as it is reported within <strong>7 days</strong> of receipt of the merchandise. Exchanges are subject to availability.</p>
+        </article>
+        <article id="listing" title="listing">
+            <h1 title="maintitle"> maintitle </h1>
+            <img class="itemPicture" src="imagelinkgoeshere" alt="maintitle" title="main picture"/>
+            <ul class="itemFeatures" title="features">
+		<h2 class=\"features\" title=\"features section\">Main Features</h2>
+                 keybulleti 
+            </ul>
+            <section id="description" title="item description">
+                <h2 id="desc">Description :</h2>
+                <p> itemdesc </p>
+            </section>
+        </article>
+    </section>
+</body>
+</html>

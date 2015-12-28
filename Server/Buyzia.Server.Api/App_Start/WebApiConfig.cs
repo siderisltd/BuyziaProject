@@ -5,6 +5,8 @@ using System.Web.Http;
 
 namespace Buyzia.Server.Api
 {
+    using System.Net.Http.Headers;
+
     public static class WebApiConfig
     {
         public static void Register(HttpConfiguration config)

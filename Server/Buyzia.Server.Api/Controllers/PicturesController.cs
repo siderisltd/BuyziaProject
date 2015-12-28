@@ -1,17 +1,24 @@
 ﻿namespace Buyzia.Server.Api.Controllers
 {
+    using System;
+    using System.Collections.Generic;
     using System.Net.Http;
     using System.Net.Http.Headers;
     using System.Web.Http;
+    using System.Linq;
     using Models.Pictures;
     using Services.Contracts;
 
+    [RoutePrefix("api/pictures")]
     public class PicturesController : ApiController
     {
         private readonly IPictureService pictureService;
 
-        public PicturesController(IPictureService pictureService)
+        private readonly IItemService itemService;
+
+        public PicturesController(IPictureService pictureService, IItemService itemService)
         {
+            this.itemService = itemService;
             this.pictureService = pictureService;
         }
 
@@ -32,23 +39,14 @@
             response.Content.Headers.ContentDisposition = disposition;
 
             return response;
-
-            // MemoryStream pictureAsMemoryStream = new MemoryStream(pictureAsByteArr.ToArray());
-
-            //// var fileStreamResult = new FileStreamResult(pictureAsMemoryStream, "image/jpeg");
-
-            // var response = new HttpResponseMessage();
-            // response.Content = new StreamContent(pictureAsMemoryStream);
-            // response.Content.Headers.ContentType = new MediaTypeHeaderValue("text/html");
-            // //return this.Ok(pictureAsByteArr);
-            // return response;
         }
 
-        public IHttpActionResult Post(PicturesBindingModel model)
+        [Route("getAllPicturesForGivenItem")]
+        public IHttpActionResult Get(string id)
         {
-            var resultId = this.pictureService.Add(model.ToItemId, model.Url);
-
-            return this.Ok(resultId);
+            var itemGuid = new Guid(id);
+            ICollection<string> pictureUrls = this.pictureService.GetAllPictureUrlsForGivenItem(itemGuid);
+            return this.Ok(pictureUrls);
         }
     }
 }

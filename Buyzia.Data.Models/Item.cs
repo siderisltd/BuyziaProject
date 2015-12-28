@@ -45,6 +45,9 @@
 
         public decimal Taxes { get; set; }
 
+        //TODO: Set when item is uploaded in ebay
+        public long EbayID { get; set; }
+
         public DateTime CreatedOn { get; set; }
 
         public DateTime? ModifiedOn { get; set; }
