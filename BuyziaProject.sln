@@ -31,6 +31,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "WebPrivacy", "WebPrivacy", 
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TorProject", "WebPrivacy\TorProject\TorProject.csproj", "{AB134CCF-FA89-4CDD-9F4F-3E200033854F}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AmazonWalker", "Client\AmazonWalker\AmazonWalker.csproj", "{ADBB5793-AE1B-44B5-A583-81032903AE4A}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -69,6 +71,10 @@ Global
 		{AB134CCF-FA89-4CDD-9F4F-3E200033854F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{AB134CCF-FA89-4CDD-9F4F-3E200033854F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{AB134CCF-FA89-4CDD-9F4F-3E200033854F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{ADBB5793-AE1B-44B5-A583-81032903AE4A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{ADBB5793-AE1B-44B5-A583-81032903AE4A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{ADBB5793-AE1B-44B5-A583-81032903AE4A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{ADBB5793-AE1B-44B5-A583-81032903AE4A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -82,5 +88,6 @@ Global
 		{5763F56D-24A6-4524-A33C-B04D48894312} = {B934BF13-81E8-4448-B66D-96446960C5B3}
 		{BCB28976-875A-4365-BBC4-891EC30EFAF8} = {B934BF13-81E8-4448-B66D-96446960C5B3}
 		{AB134CCF-FA89-4CDD-9F4F-3E200033854F} = {BBE4CEB7-0693-4781-9F9A-7B86F0450FFC}
+		{ADBB5793-AE1B-44B5-A583-81032903AE4A} = {89539F4D-6208-451A-B9BA-4324462427D0}
 	EndGlobalSection
 EndGlobal
