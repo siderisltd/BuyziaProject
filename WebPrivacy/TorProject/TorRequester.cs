@@ -1,156 +1,64 @@
 ﻿namespace TorProject
 {
     using System;
-    using System.Collections.Generic;
-    using System.Collections.Specialized;
     using System.Diagnostics;
     using System.IO;
-    using System.IO.Ports;
     using System.Net;
     using System.Net.Sockets;
     using System.Text;
     using System.Text.RegularExpressions;
-    using System.Threading;
-    using System.Threading.Tasks;
-    using System.Windows.Forms;
-    using Microsoft.Win32;
-
-    //TODO: CHECK AND FIX !!!
+    using Config;
+    using Helpers;
+    using OpenQA.Selenium;
+    using OpenQA.Selenium.Firefox;
+    using OpenQA.Selenium.Support.UI;
 
     public class TorRequester
     {
-
-        string lastHtml = string.Empty;
-
-        //private void Exec(string url)
-        //{
-        //    string html = string.Empty;
-
-
-        //    var th = new Thread(() =>
-        //    {
-        //            WebBrowser wb = new WebBrowser();
-        //            wb.DocumentCompleted += (sndr, e) =>
-        //            {
-        //                var documentElement = wb.Document.GetElementsByTagName("html")[0];
-
-        //                if (html == documentElement.OuterHtml)
-        //                {
-        //                    lastHtml = documentElement.OuterHtml;
-        //                    Application.ExitThread();
-        //                }
-
-        //                html = documentElement.OuterHtml;
-
-        //                wb.Navigate(url);
-        //                Thread.Sleep(1000);
-        //            };
-        //            wb.Navigate(url);
-        //    });
-        //    th.SetApartmentState(ApartmentState.STA);
-        //    th.Start();
-        //    th.Join();
-        //}
-
-
-        //public async Task<string> MakeDynamicRequest(string url)
-        //{
-        //    var cts = new CancellationTokenSource(10000); // cancel in 10s
-        //    //var html = await this.LoadDynamicPage(url, cts.Token);
-        //    return Exec(url);
-        //}
-
-        //public Task<T> StartSTATask<T>(Func<T> func)
-        //{
-        //    var tcs = new TaskCompletionSource<T>();
-        //    Thread thread = new Thread(() =>
-        //    {
-        //        try
-        //        {
-        //            tcs.SetResult(func());
-        //        }
-        //        catch (Exception e)
-        //        {
-        //            tcs.SetException(e);
-        //        }
-        //    });
-        //    thread.SetApartmentState(ApartmentState.STA);
-        //    thread.Start();
-        //    return tcs.Task;
-        //}
-
-        //private async Task<string> LoadDynamicPage(string url, CancellationToken token)
-        //{
-        //    this.StartSTATask<WebBrowser>(yx => new WebBrowser());
-        //    var res = await Task.Run(() => new WebBrowser());
-        //    var webBrowser = res;
-
-        //    // navigate and await DocumentCompleted
-        //    var tcs = new TaskCompletionSource<bool>();
-        //    WebBrowserDocumentCompletedEventHandler handler = (s, arg) =>
-        //                                                      {
-        //                                                          tcs.TrySetResult(true);
-        //                                                      };
-
-        //    using (token.Register(() => tcs.TrySetCanceled(), useSynchronizationContext: true))
-        //    {
-        //        webBrowser.DocumentCompleted += handler;
-        //        try
-        //        {
-        //            webBrowser.Navigate(url);
-        //            await tcs.Task; // wait for DocumentCompleted
-        //        }
-        //        finally
-        //        {
-        //            webBrowser.DocumentCompleted -= handler;
-        //        }
-        //    }
-
-        //    // get the root element
-
-        //    var documentElement = webBrowser.Document.GetElementsByTagName("html")[0];
-        //    // poll the current HTML for changes asynchronosly
-        //    var html = documentElement.OuterHtml;
-        //    while (true)
-        //    {
-        //        // wait asynchronously, this will throw if cancellation requested
-        //        await Task.Delay(500, token);
-
-        //        // continue polling if the WebBrowser is still busy
-        //        if (webBrowser.IsBusy)
-        //            continue;
-
-        //        var htmlNow = documentElement.OuterHtml;
-        //        if (html == htmlNow)
-        //            break; // no changes detected, end the poll loop
-
-        //        html = htmlNow;
-        //    }
-
-        //    // consider the page fully rendered 
-        //    token.ThrowIfCancellationRequested();
-        //    return html;
-        //}
-
-        //public async Task<string> MakeCompleteRequest(string url)
-        //{
-        //    var resp = await MakeDynamicRequest(url);
-
-        //    return resp;
-        //}
-
-        public string MakeRequest(string url)
+        public void BrowserRequest(string url)
         {
-            //TODO: ADD PRIVOXY'S PROCESS ALSO
+            var processesHelper = new ProcessesHelper();
+            processesHelper.EnsurePrivoxyIsStarted();
+            Process torProcess = processesHelper.CreateTorProcess();
 
-            string content;
+            FirefoxProfile profile = new FirefoxProfile();
+            profile.SetPreference("network.proxy.type", 1);
+            profile.SetPreference("network.proxy.socks", Constants.LOCALHOST);
+            profile.SetPreference("network.proxy.socks_port", Constants.NETWORK_PROXY_SOCKS_PORT);
+            IWebDriver driver = new FirefoxDriver(profile);
+            WebDriverWait Wait = new WebDriverWait(driver, TimeSpan.FromSeconds(Constants.WEB_DRIVER_WAIT_SECONDS));
 
-            Process p = new Process();
-            //p.StartInfo = new ProcessStartInfo(@"C:\Users\n.mhoumadi\Downloads\Tor Browser\App\tor.exe", "ControlPort 9051 HashedControlPassword 16:09E39A6695DD2EAE60AC6BE15E1E348B1042FE3A6E34137C7E2F0C83B9");
-            p.StartInfo = new ProcessStartInfo(@"C:\Users\Alex\Desktop\Tor Browser\Browser\TorBrowser\Tor\tor.exe", "ControlPort 9051 CircuitBuildTimeout 1");
-            p.Start();
 
-            Regex regex = new Regex("\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}", RegexOptions.Multiline);
+            driver.Navigate().GoToUrl(url);
+            //switch to IFrameContent
+            //this.Driver.SwitchTo().Frame(this.Driver.FindElement(By.Id("product-description-iframe")));
+            var whatIsMyIpComExpression = By.XPath("//*[@id='section_left']/div[2]");
+            Wait.Until(x => x.FindElement(whatIsMyIpComExpression));
+            var element = driver.FindElement(whatIsMyIpComExpression);
+
+            this.ChangeIdentity();
+            driver.Quit();
+
+            //For more requests with the same driver
+
+            //this.Driver = new FirefoxDriver(profile);
+            //this.Wait = new WebDriverWait(this.Driver, TimeSpan.FromSeconds(30));
+            //this.Driver.Navigate().GoToUrl(url);
+            //this.Wait.Until(x => x.FindElement(expression));
+            //element = this.Driver.FindElement(expression);
+            //ChangeIdentity();
+            //this.Driver.Quit();
+
+            if (!torProcess.HasExited) { torProcess.Kill(); }
+        }
+
+        public string Get(string url)
+        {
+            var processesHelper = new ProcessesHelper();
+            processesHelper.EnsurePrivoxyIsStarted();
+            Process torProcess = processesHelper.CreateTorProcess();
+
+            Regex ipRegex = new Regex("\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}", RegexOptions.Multiline);
             HttpWebRequest request = (HttpWebRequest)WebRequest.Create(url);
             //request.UserAgent = "Mozilla/4.0 (compatible; MSIE 7.0; Windows NT 6.1; WOW64; Trident/6.0;)";
             request.UserAgent = "Mozilla/5.0 (Windows NT 6.1; rv:38.0) Gecko/20100101 Firefox/38.0";
@@ -161,53 +69,44 @@
 
             request.AutomaticDecompression = DecompressionMethods.GZip | DecompressionMethods.Deflate;
 
-            //request.Proxy = new WebProxy("");
+            request.Proxy = new WebProxy(Constants.PRIVOXY_WEB_PROXY);
             request.KeepAlive = false;
-            request.Timeout = 15000;
+            request.Timeout = Constants.REQUEST_TIMEOUT_MS;
 
-            //this.Exec("127.0.0.1:8118", url);
-
+            string content;
             using (HttpWebResponse response = (HttpWebResponse)request.GetResponse())
             {
                 using (var reader = new StreamReader(response.GetResponseStream()))
                 {
                     content = reader.ReadToEnd();
-                    var first = regex.Match(content);
+                    var first = ipRegex.Match(content);
                     var ip = first.Groups[0].Value;
-                    //Thread.Sleep(10000);
 
-                    this.RefreshTor();
+                    this.ChangeIdentity();
                 }
             }
 
-            if (!p.HasExited) p.Kill();
+            if (!torProcess.HasExited) torProcess.Kill();
 
             return content;
         }
 
-        //private void SetProxy(string Proxy)
+        //public void CheckIfBlocked(HttpWebResponse response, string ypURL)
         //{
-        //    string key = "Software\\Microsoft\\Windows\\CurrentVersion\\Internet Settings";
-        //    RegistryKey RegKey = Registry.CurrentUser.OpenSubKey(key, true);
-        //    RegKey.SetValue("ProxyServer", Proxy);
-        //    RegKey.SetValue("ProxyEnable", 1);
+        //    if (response.StatusCode == HttpStatusCode.Forbidden)
+        //    {
+        //        Console.WriteLine("Getting Blocked");
+        //        this.RefreshTor();
+        //        //make new request to the same url
+
+        //        //check for forbidden if it is true you are blocked
+        //    }
         //}
 
-        public void CheckIfBlocked(HttpWebResponse response, string ypURL)
+        private void ChangeIdentity()
         {
-            if (response.StatusCode == HttpStatusCode.Forbidden)
-            {
-                Console.WriteLine("Getting Blocked");
-                this.RefreshTor();
-                //make new request to the same url
-
-                //check for forbidden if it is true you are blocked
-            }
-        }
-
-        public void RefreshTor()
-        {
-            IPEndPoint ip = new IPEndPoint(IPAddress.Parse("127.0.0.1"), 9051);
+            //auth problem....
+            IPEndPoint ip = new IPEndPoint(IPAddress.Parse(Constants.LOCALHOST), Constants.TOR_IDENTITY_PORT);
             Socket server = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
             try
             {
@@ -215,36 +114,33 @@
             }
             catch (SocketException e)
             {
-                Console.WriteLine("Unable to connect to server.");
-                RefreshTor();
-                return;
+                throw new ArgumentException("Cannot connect to server");
             }
 
-            server.Send(Encoding.ASCII.GetBytes("AUTHENTICATE \"butt\"\n"));
+            server.Send(Encoding.ASCII.GetBytes(Constants.TOR_AUTH_COMMAND));
             byte[] data = new byte[1024];
             int receivedDataLength = server.Receive(data);
             string stringData = Encoding.ASCII.GetString(data, 0, receivedDataLength);
 
-            if (stringData.Contains("250"))
+            if (stringData.Contains(Constants.TOR_OK_CODE))
             {
-                server.Send(Encoding.ASCII.GetBytes("SIGNAL NEWNYM\r\n"));
+                server.Send(Encoding.ASCII.GetBytes(Constants.TOR_CHANGE_IDENTITY_COMMAND));
                 data = new byte[1024];
                 receivedDataLength = server.Receive(data);
                 stringData = Encoding.ASCII.GetString(data, 0, receivedDataLength);
-                if (!stringData.Contains("250"))
+                if (!stringData.Contains(Constants.TOR_OK_CODE))
                 {
                     Console.WriteLine("Unable to signal new user to server.");
                     server.Shutdown(SocketShutdown.Both);
                     server.Close();
-                    RefreshTor();
+                    throw new ArgumentException("Unable to change identity");
                 }
             }
             else
             {
-                Console.WriteLine("Unable to authenticate to server.");
                 server.Shutdown(SocketShutdown.Both);
                 server.Close();
-                RefreshTor();
+                throw new ArgumentException("Unable to connect the server! Maybe authentication- see the last stringData");
             }
             server.Shutdown(SocketShutdown.Both);
             server.Close();
