@@ -17,14 +17,12 @@
             var whatIs = "http://whatismyipaddress.com/";
 
             var amlink =
-                "http://www.amazon.com/Cuisinart-SS-700-Single-Brewing-System/dp/B0034J6QIY/ref=pd_sim_79_4?ie=UTF8&dpID=41n8xkin0sL&dpSrc=sims&preST=_AC_UL160_SR125%2C160_&refRID=1QRV0FMVGT2X6D2M8KH5";
+                "http://www.amazon.com/Altra-Furniture-Carson-50-Inches-Espresso/dp/B005KUVZEA/ref=sr_1_1?s=home-garden&ie=UTF8&qid=1451487776&sr=1-1&keywords=tv";
 
 
             TorRequester torRequester = new TorRequester();
-            torRequester.BrowserRequest(whatIs);
-            torRequester.Get(whatIs);
-            torRequester.BrowserRequest(whatIs);
-            torRequester.Get(whatIs);
+            torRequester.BrowserRequest(amlink);
+
 
             //var tr = new TorRequests();
             //tr.StartTor(whatIs);

@@ -7,6 +7,8 @@
     using System.Net.Sockets;
     using System.Text;
     using System.Text.RegularExpressions;
+    using AmazonParser.Models;
+    using AmazonParser.SeleniumExtensions;
     using Config;
     using Helpers;
     using OpenQA.Selenium;
@@ -25,16 +27,17 @@
             profile.SetPreference("network.proxy.type", 1);
             profile.SetPreference("network.proxy.socks", Constants.LOCALHOST);
             profile.SetPreference("network.proxy.socks_port", Constants.NETWORK_PROXY_SOCKS_PORT);
-            IWebDriver driver = new FirefoxDriver(profile);
-            WebDriverWait Wait = new WebDriverWait(driver, TimeSpan.FromSeconds(Constants.WEB_DRIVER_WAIT_SECONDS));
 
+            ICustomWebDriver driver = new CustomFirefoxDriver(profile);
+            WebDriverWait wait = new WebDriverWait(driver, TimeSpan.FromSeconds(Constants.WEB_DRIVER_WAIT_SECONDS));
 
-            driver.Navigate().GoToUrl(url);
-            //switch to IFrameContent
-            //this.Driver.SwitchTo().Frame(this.Driver.FindElement(By.Id("product-description-iframe")));
-            var whatIsMyIpComExpression = By.XPath("//*[@id='section_left']/div[2]");
-            Wait.Until(x => x.FindElement(whatIsMyIpComExpression));
-            var element = driver.FindElement(whatIsMyIpComExpression);
+            ItemDetailsObject result = driver.ParseAmazonProduct(url, wait);
+            //driver.Navigate().GoToUrl(url);
+            ////switch to IFrameContent
+            ////this.Driver.SwitchTo().Frame(this.Driver.FindElement(By.Id("product-description-iframe")));
+            //var whatIsMyIpComExpression = By.XPath("//*[@id='section_left']/div[2]");
+            //Wait.Until(x => x.FindElement(whatIsMyIpComExpression));
+            //var element = driver.FindElement(whatIsMyIpComExpression);
 
             this.ChangeIdentity();
             driver.Quit();
